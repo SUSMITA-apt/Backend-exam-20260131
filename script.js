@@ -12,9 +12,15 @@
 // console.log(json);
 // concatenate two Buffers
 
-const buf1 = Buffer.from("Hello ");
-const buf2 = Buffer.from("World");
+// const buf1 = Buffer.from("Hello ");
+// const buf2 = Buffer.from("World");
 
-const result = Buffer.concat([buf1, buf2]);
+// const result = Buffer.concat([buf1, buf2]);
 
-console.log(result.toString());
+// console.log(result.toString());
+const fs = require("fs");
+
+const readStream = fs.createReadStream("input.txt");
+const writeStream = fs.createWriteStream("output.txt");
+
+readStream.pipe(writeStream);
