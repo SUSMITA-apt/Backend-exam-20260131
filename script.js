@@ -18,9 +18,22 @@
 // const result = Buffer.concat([buf1, buf2]);
 
 // console.log(result.toString());
-const fs = require("fs");
+// pipe method
+// const fs = require("fs");
 
-const readStream = fs.createReadStream("input.txt");
-const writeStream = fs.createWriteStream("output.txt");
+// const readStream = fs.createReadStream("input.txt");
+// const writeStream = fs.createWriteStream("output.txt");
 
-readStream.pipe(writeStream);
+// readStream.pipe(writeStream);
+
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("Hello World from Node.js Server");
+});
+
+server.listen(3000, () => {
+  console.log("Server running at http://localhost:3000");
+});
+
